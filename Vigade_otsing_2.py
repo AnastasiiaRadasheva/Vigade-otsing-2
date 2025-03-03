@@ -1,79 +1,64 @@
-﻿print("*** NUMBRIDEGA MÄNGUD ***")
+﻿print("*** ARVUDE MÄNG ***")  # Tervitussõnum
 print()
-#'''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
-while 1:
-    try:
-        a = (abs(int(input("Sisestage täisarv => "))))  
-        break
-    except ValueError:
-        print("See ei ole täisarv")
-#'''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
-if a==0:
-    print("Nulliga pole mõtet midagi peale hakata")
-else:
-print("Määrake, kui palju paaris ja mitu paaritu numbrit on arvus")
-print()
-c=b=a
-paaris = 0
-paaritu = 0
-while b > 0:  
-        if b % 2 == 0:     
-                paaris += 1    
-        else:
-                paaritu += 1    
-        b = b // 10
-print("Paarisarvud:", paaris)  
-print("paarituid numbreid:", paaritu)  
-print()
-# #''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
-#     print("*Переворачиваем* введённое число")
-#     print()
-#     b=0
-#     while a > 0
-#         number = a % 10
-#         a = a // 10
-#         b = b * 10
-#          b =+ number
-#     print("*Перевёрнутое* число", b)
-#     print()
-# #''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
-#     print(("Проверяем гипотезу Сиракуз")
-#     print()
-#     if c % 2 = 0:
-#         print("с - чётное число. Делим на 2.")
-#     else:
-#         print("с - нечётное число. Умножаем на 3, прибавляем 1 и делим на 2.")
-#     while c != 1:
-#             if c % 2 = 0:
-#                     c == c / 2
-#             else:
-#                     c == (3*c + 1) / 2
-#             print(c, end=")
-#     print()
-#     print("Гипотеза верна'')
 
-#     print("*Pöörake * sisestatud number")
-#     print()
-#     b=0
-#     while a > 0:       #добавила двоеточие
-#         number = a % 10
-#         a = a // 10
-#         b = b * 10
-#         b += number #поменяла местами знаки + и =   
-#     print("*Tagurpidi* number", b)
-#     print()
-# #''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
-#     print("Syracuse hüpoteesi testimine")    #удалила лишнюю скобку
-#     print()
-#     if c % 2 == 0:   #добавила ровно
-#         print(c," - paarisarv. Jagage poolt 2.")
-#     else:
-#         print(c," - paaritu number. Korrutage 3-ga, lisage 1 ja jagage 2.")
-#     while c != 1:
-#             if c % 2 == 0:   #добавила ровно
-#                     c = c / 2   #удалила ровно
-#             else:
-#                     c = (3*c + 1) / 2   #удалила ровно
-#             print(round(c), end=" ")   #добавила верный знак препинания
-#     print()
-#     print("Hüpotees on õige")   #добавила верный знак препинания
+#'''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
+# Küsime kasutajalt täisarvu ja kontrollime sisendi korrektsust
+while True:
+    try:
+        a = abs(int(input("Sisesta täisarv => ")))  # Sisesta täisarv
+        break  # Kui sisestus on korrektne, väljumetsüklis
+    except ValueError:
+        print("See ei ole täisarv")  # Veateade vale sisendi korral
+
+#'''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
+if a == 0:
+    print("Nulliga pole mõtet midagi teha")  # Kui sisestatud arv on 0, lõpetame
+else:
+    print("Loendame, mitu on paaris ja mitu paaritut numbrit")
+    print()
+    
+    c = b = a  # Salvestame algse arvu koopia
+    paaris = 0  # Paarisarvude loendur
+    paaritu = 0  # Paaritute arvude loendur
+    
+    while b > 0:
+        if b % 2 == 0:  # Kontrollime, kas number on paaris
+            paaris += 1  # Suurendame paarisarvude loendurit
+        else:
+            paaritu += 1  # Suurendame paaritute arvude loendurit
+        b = b // 10  # Eemaldame viimase numbri arvust
+    
+    print("Paaris numbrid:", paaris)
+    print("Paaritud numbrid:", paaritu)
+    print()
+    
+    #'''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
+    # Pöörame sisestatud arvu ümber
+    print("*Ümberpöörame* sisestatud arvu")
+    print()
+    
+    b = 0  # Muutuja ümberpööratud arvu salvestamiseks
+    while a > 0:
+        number = a % 10  # Saame viimase numbri
+        a = a // 10  # Eemaldame viimase numbri
+        b = b * 10 + number  # Moodustame ümberpööratud arvu
+    
+    print("*Ümberpööratud* arv", b)
+    print()
+    
+    #'''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
+    # Tõestame Syracuse hüpoteesi (Collatzi hüpotees)
+    print("Tõestame teoreemi")
+    print()
+    
+    while c != 1:
+        if c % 2 == 0:  # Kui arv on paarisarv
+            print(c, "- Paaris arv, Jagame 2.")
+            c = c // 2  # Jagame 2-ga
+        else:  # Kui arv on paaritu
+            print(c, "- Paaritu arv. Korrutame 3, liidame 1 ja jagame 2.")
+            c = (3 * c + 1) // 2  # Korrutame 3-ga, liidame 1 ja jagame 2-ga
+    
+    print("1 - Teoreem on tõestatud")
+    print()
+    print("Press any key to continue . . .")
